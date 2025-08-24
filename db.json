@@ -14,6 +14,11 @@
       "id": 3,
       "title": "Cypress",
       "description": "Full Cypress course from zero in Arabic"
+    },
+    {
+      "title": "Appium",
+      "description": "Full Appium course from zero in Arabic",
+      "id": 4
     }
   ],
   "users": [
