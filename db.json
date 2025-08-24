@@ -1,30 +1,41 @@
 {
-    "courses":[
-        {
-            "id":1,
-            "title": "Postman",
-            "description": "Full Postman course from zero in Arabic"
-        },
-        {
-            "id":2,
-            "title": "Selenium",
-            "description": "Full Selenium course from zero in Arabic"
-        },{
-            "id":3,
-            "title": "Cypress",
-            "description": "Full Cypress course from zero in Arabic"
-        }
-    ],
-    "users":[
-        {
-            "id":1,
-            "firstName":"mohamed",
-            "lastName":"ashraf"
-        },
-        {
-            "id":2,
-            "firstName":"ahmed",
-            "lastName":"ashraf"
-        }
-    ]
+  "courses": [
+    {
+      "id": 1,
+      "title": "Postman",
+      "description": "Full Postman course from zero in Arabic"
+    },
+    {
+      "id": 2,
+      "title": "Selenium",
+      "description": "Full Selenium course from zero in Arabic"
+    },
+    {
+      "id": 3,
+      "title": "Cypress",
+      "description": "Full Cypress course from zero in Arabic"
+    },
+    {
+      "title": "Appium",
+      "description": "Full Appium course from zero in Arabic",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "mohamed",
+      "lastName": "ashraf"
+    },
+    {
+      "id": 2,
+      "firstName": "ahmed",
+      "lastName": "ashraf"
+    },
+    {
+      "id": 3,
+      "firstName": "ahmed",
+      "lastName": "mohamed"
+    }
+  ]
 }
