@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "fbbbbc9a-7e49-4cb0-9a1b-66487c3ddee0",
+		"name": "Fake Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47843064",
+		"_collection_link": "https://mohamed-ashraf-s-team.postman.co/workspace/b3a99b2b-bd11-4b10-8f95-f00da3bb4188/collection/47843064-fbbbbc9a-7e49-4cb0-9a1b-66487c3ddee0?action=share&source=collection_link&creator=47843064"
+	},
+	"item": [
+		{
+			"name": "Get Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/660/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonFile = pm.response.json()\r",
+							"var userID=jsonFile.id\r",
+							"\r",
+							"pm.environment.set(\"userID\", userID);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains mohamed\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"mohamed\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/660/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonFile = pm.response.json()\r",
+							"var productID=jsonFile.id\r",
+							"\r",
+							"pm.environment.set(\"productID\", productID);\r",
+							"\r",
+							"// created\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 19,\r\n        \"name\": \"Product019\",\r\n        \"cost\": 10,\r\n        \"quantity\": 1000,\r\n        \"locationId\": 19,\r\n        \"familyId\": 19\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/660/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData=pm.response.json();\r",
+							"var userID=jsonData.id;\r",
+							"\r",
+							"pm.environment.set(\"userID\", userID);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"id\":4,\r\n            \"firstName\":\"ahmed\",\r\n            \"lastName\":\"mohamed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/660/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"javascript\",\r\n      \"description\": \"Full javascript course from zero in Arabic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/660/products/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Essam\",\r\n    \"lastName\":\"ashraf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/660/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsonFile = pm.response.json()\r",
+							"var productID=jsonFile.id\r",
+							"\r",
+							"pm.environment.set(\"productID\", productID);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"title\": \"Appium\",\r\n      \"description\": \"Full Appium course from zero in Arabic\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/660/products/{{productID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"products",
+						"{{productID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData=pm.response.json();\r",
+							"var userID = jsonData.user.id;\r",
+							"\r",
+							"pm.environment.set(\"userID\", userID);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"esmymohamed1@gmail.com\",\r\n    \"password\":\"mohamed123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/660/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/660/users/{{userID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"users",
+						"{{userID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData=pm.response.json();\r",
+							"var token = jsonData.accessToken;\r",
+							"\r",
+							"pm.environment.set(\"user1 token\",token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"email\": \"esmymohamed2@gmail.com\",\r\n      \"password\": \"mohamed123\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product after delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user1 token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/660/products/{{productID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"660",
+						"products",
+						"{{productID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
