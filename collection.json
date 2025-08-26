@@ -14,13 +14,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData=pm.response.json();\r",
-							"var token = jsonData.accessToken;\r",
-							"\r",
-							"pm.environment.set(\"user1 token\",token);\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"var jsonData=pm.response.json();",
+							"var token = jsonData.accessToken;",
+							"pm.environment.set(\"user1 token\",token);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
 							"});"
 						],
 						"type": "text/javascript",
@@ -33,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n      \"email\": \"esmymohamed2@gmail.com\",\r\n      \"password\": \"mohamed123\"\r\n    }",
+					"raw": "{\n      \"email\": \"esmymohamed2@gmail.com\",\n      \"password\": \"mohamed123\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,8 +47,7 @@
 						"login"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "Get Product",
@@ -59,11 +56,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
 							"});"
 						],
 						"type": "text/javascript",
@@ -83,18 +80,7 @@
 					]
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "text"
-					},
-					{
-						"key": "",
-						"value": "",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "{{url}}/660/products",
 					"host": [
@@ -105,8 +91,7 @@
 						"products"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "get users",
@@ -115,27 +100,18 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonFile = pm.response.json()\r",
-							"var userID=jsonFile.id\r",
-							"\r",
-							"pm.environment.set(\"userID\", userID);\r",
-							"\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"check if the response contains mohamed\",function(){\r",
-							"    pm.expect(pm.response.text()).to.include(\"mohamed\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
-							"\r",
-							"\r",
-							""
+							"var jsonFile = pm.response.json();",
+							"var userID=jsonFile.id;",
+							"pm.environment.set(\"userID\", userID);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"check if the response contains mohamed\",function(){",
+							"    pm.expect(pm.response.text()).to.include(\"mohamed\");",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -165,8 +141,7 @@
 						"users"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "Post Product",
@@ -175,18 +150,14 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonFile = pm.response.json()\r",
-							"var productID=jsonFile.id\r",
-							"\r",
-							"pm.environment.set(\"productID\", productID);\r",
-							"\r",
-							"// created\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"var jsonFile = pm.response.json();",
+							"var productID=jsonFile.id;",
+							"pm.environment.set(\"productID\", productID);",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
 							"});"
 						],
 						"type": "text/javascript",
@@ -209,7 +180,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"id\": 19,\r\n        \"name\": \"Product019\",\r\n        \"cost\": 10,\r\n        \"quantity\": 1000,\r\n        \"locationId\": 19,\r\n        \"familyId\": 19\r\n}",
+					"raw": "{\n        \"id\": 19,\n        \"name\": \"Product019\",\n        \"cost\": 10,\n        \"quantity\": 1000,\n        \"locationId\": 19,\n        \"familyId\": 19\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -226,8 +197,7 @@
 						"products"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "delete product",
@@ -236,12 +206,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"var jsonFile = pm.response.json()\r",
-							"var productID=jsonFile.id\r",
-							"\r",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonFile = pm.response.json();",
+							"var productID=jsonFile.id;",
 							"pm.environment.set(\"productID\", productID);"
 						],
 						"type": "text/javascript",
@@ -264,7 +233,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"title\": \"Appium\",\r\n      \"description\": \"Full Appium course from zero in Arabic\"\r\n}"
+					"raw": "{\n     \"title\": \"Appium\",\n      \"description\": \"Full Appium course from zero in Arabic\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/660/products/{{productID}}",
@@ -277,8 +246,7 @@
 						"{{productID}}"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "Get Product after delete",
@@ -287,8 +255,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
 							"});"
 						],
 						"type": "text/javascript",
@@ -320,8 +288,7 @@
 						"{{productID}}"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "Post user",
@@ -330,9 +297,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData=pm.response.json();\r",
-							"var userID=jsonData.id;\r",
-							"\r",
+							"var jsonData=pm.response.json();",
+							"var userID=jsonData.id;",
 							"pm.environment.set(\"userID\", userID);"
 						],
 						"type": "text/javascript",
@@ -355,7 +321,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"id\":4,\r\n            \"firstName\":\"ahmed\",\r\n            \"lastName\":\"mohamed\"\r\n}",
+					"raw": "{\n \"id\":4,\n            \"firstName\":\"ahmed\",\n            \"lastName\":\"mohamed\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -372,8 +338,7 @@
 						"signup"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "register user",
@@ -382,16 +347,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData=pm.response.json();\r",
-							"var userID = jsonData.user.id;\r",
-							"\r",
-							"pm.environment.set(\"userID\", userID);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});\r",
-							"\r",
-							""
+							"var jsonData=pm.response.json();",
+							"var userID = jsonData.id;",
+							"pm.environment.set(\"userID\", userID);",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -413,7 +374,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"esmymohamed1@gmail.com\",\r\n    \"password\":\"mohamed123\"\r\n}",
+					"raw": "{\n    \"email\":\"esmymohamed1@gmail.com\",\n    \"password\":\"mohamed123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -430,8 +391,7 @@
 						"register"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "delete user",
@@ -440,8 +400,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
 							"});"
 						],
 						"type": "text/javascript",
@@ -473,8 +433,7 @@
 						"{{userID}}"
 					]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "edit product",
@@ -483,15 +442,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
-							""
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -513,7 +469,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\":\"javascript\",\r\n      \"description\": \"Full javascript course from zero in Arabic\"\r\n}",
+					"raw": "{\n    \"title\":\"javascript\",\n      \"description\": \"Full javascript course from zero in Arabic\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -531,8 +487,7 @@
 						"4"
 					]
 				}
-			},
-			"response": []
+			}
 		}
 	]
 }
